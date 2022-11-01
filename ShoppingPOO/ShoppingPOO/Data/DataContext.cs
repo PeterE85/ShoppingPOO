@@ -14,7 +14,7 @@ namespace ShoppingPOO.Data
 
         public DbSet<Country> Countries { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder) //metodo antes de crear la BD
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();

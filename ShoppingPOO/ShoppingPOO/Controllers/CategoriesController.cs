@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShoppingPOO.Data;
 using ShoppingPOO.Data.Entities;
+using System.Data;
 
 namespace ShoppingPOO.Controllers
 {
+    [Authorize(Roles = "Admin")] //asi le decimos que solo las categorias las puede cambiar los ADMIN
     public class CategoriesController : Controller
     {
         private readonly DataContext _context; //atributos
@@ -23,7 +26,7 @@ namespace ShoppingPOO.Controllers
         }
 
         // GET: Categories/Create
-        [HttpGet]
+        [HttpGet]       
         public IActionResult Create()
         {
             return View();
@@ -61,7 +64,7 @@ namespace ShoppingPOO.Controllers
             return View(category);
         }
 
-        // GET: Countries/Edit/5 ===================================
+        // GET: Countries/Edit/5 ===================================        
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Categories == null)
@@ -136,7 +139,7 @@ namespace ShoppingPOO.Controllers
         }
 
 
-        // GET: Countries/Delete/5===============================
+        // GET: Countries/Delete/5===============================        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Categories == null)

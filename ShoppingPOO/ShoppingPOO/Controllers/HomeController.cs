@@ -28,5 +28,13 @@ namespace ShoppingPOO.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        [Route("error/404")] //cuando haya un error que lanze la pagina de error
+        public IActionResult Error404()
+        {
+            return View();
+        }
+
     }
 }

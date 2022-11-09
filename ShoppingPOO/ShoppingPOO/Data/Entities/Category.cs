@@ -11,5 +11,6 @@ namespace ShoppingPOO.Data.Entities
         [MaxLength(100, ErrorMessage = "Field {0} must have at least {1} character.")]
         [Required(ErrorMessage = "Field {0} is mandatory!!!.")]
         public string Name { get; set; }
+        //public List<State> States { get; internal set; }
     }
 }

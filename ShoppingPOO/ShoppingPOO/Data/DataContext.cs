@@ -1,11 +1,13 @@
 ﻿
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using ShoppingPOO.Data.Entities;
 
 namespace ShoppingPOO.Data
 {
-    public class DataContext : DbContext
+    //public class DataContext : DbContext //al crear la entidad usuario ya no hereda mas de aki del DbContext
+    public class DataContext : IdentityDbContext<User> //aki ya se me crean las tablas de usuario
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {

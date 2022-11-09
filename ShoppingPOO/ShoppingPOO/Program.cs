@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Shooping.Helpers;
 using ShoppingPOO.Data;
 using ShoppingPOO.Data.Entities;
 using ShoppingPOO.Helpers;
@@ -38,7 +39,9 @@ builder.Services.ConfigureApplicationCookie(options =>
 //builder.Services.AddSingleton<SeedDB>(); //inyeccion singleton, inyecta una sola vez y no lo destruye
 //ojo la mayoria de las inyeccion son SCOPE
 
+//aki inyecto a la BD
 builder.Services.AddTransient<SeedDB>();
+builder.Services.AddScoped<ICombosHelper, CombosHelper>();
 builder.Services.AddScoped<IUserHelper, UserHelper>();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
